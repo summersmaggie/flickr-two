@@ -1,0 +1,9 @@
+<%= render "layouts/errors", :object => @question %>
+
+<%= form_for @question do |f| %>
+  <%= f.label :question_title %>
+  <%= f.text_field :question_title %>
+  <%= f.label :question_body %>
+  <%= f.text_field :question_body %>
+  <%= f.submit  %>
+<% end %>
