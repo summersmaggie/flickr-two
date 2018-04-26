@@ -9,4 +9,8 @@
     <p>There are no questions.</p>
   <% end %>
 
+  <% if is_admin? %>
+    <%= link_to "Add Question", new_question_path %>
+  <% end %>
+
 </div>
