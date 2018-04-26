@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Images</h1>
+
+  <% if @images.any? %>
+    <% @images.each do |image| %>
+      <h3><%= link_to image.title, image_path(image) %></h3>
+      <p><%= image_tag image.image.url %></p>
+      <% end %>
+    <% else %>
+      <p>There are no questions.</p>
+    <% end %>
+</div>
