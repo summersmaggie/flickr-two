@@ -1,4 +1,7 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!, :only => [:new] do
+    redirect_to root_path unless current_user && current_user.admin
+  end
 
   def new
     @question = Question.new
