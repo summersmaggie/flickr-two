@@ -2,7 +2,19 @@
   <h1><%= @question.question_title %></h1>
   <h2><%= @question.question_body %></h2>
 
-    <%= render "answers/new" %>
-    <%= render "answers/show" %>
+  <h2>Answers:</h2>
+    <% if @answers.any? %>
+      <% @answers.each do |answer| %>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><%= answer.answer_title %></h5>
+            <h6 class="card-text"><%= answer.answer_body %></h6>
+          </div>
+        </div>
+      <% end %>
+    <% else %>
+      <p>There are no answers yet.</p>
+    <% end %>
 
+  <p><%= link_to "Add an answer!", new_question_answer_path(@question) %></p>
 </div>

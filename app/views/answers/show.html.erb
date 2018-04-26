@@ -1,0 +1,11 @@
+<% if @question.answers.any? %>
+  <h4>Answers:</h4>
+  <ul>
+    <% @answers.each do |answer| %>
+      <p><%= answer.answer_title %></p>
+      <p><%= answer.answer_body %></p>
+    <% end %>
+  </ul>
+  <% else %>
+  <h5><%= "No answers yet. Add an answer."%></h5>
+    <% end %>

@@ -2,11 +2,19 @@ class AnswersController < ApplicationController
 
   def new
     @answer = Answer.new
+    @question = Question.find(params[:question_id])
   end
 
-  def update
-    @answer = Answer.find(params[:id])
-    if @answer.update(answer_params)
+  def show
+    @question = Question.find(params[:answer_id])
+    @answer = Answer.find(@question.id)
+    @answers = Answer.all
+  end
+
+  def create
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.new(answer_params)
+    if @answer.save
       flash[:notice] = "Answer saved!"
       redirect_to questions_path
     else
